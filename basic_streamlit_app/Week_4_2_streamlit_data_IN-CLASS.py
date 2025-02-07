@@ -9,16 +9,22 @@ st.subheader("Now, let's look at some data!")
 
 # Creating a simple DataFrame manually
 # This helps students understand how to display tabular data in Streamlit.
+
+"""
 df = pd.DataFrame({
     'Name': ['Alice', 'Bob', 'Charlie', 'David'],
     'Age': [25, 30, 35, 40],
     'City': ['New York', 'Los Angeles', 'Chicago', 'Houston']
 })
+"""
+
+df2 = pd.read_csv("data/sample_data.csv") # hit sample_data.csv and copy relative path
+st.dataframe(df2)
 
 # Displaying the table in Streamlit
 # st.dataframe() makes it interactive (sortable, scrollable)
 st.write("Here's a simple table:")
-st.dataframe(df)
+st.dataframe(df2)
 
 # ================================
 # Step 2: Adding User Interaction with Widgets
@@ -26,11 +32,14 @@ st.dataframe(df)
 
 # Using a selectbox to allow users to filter data by city
 # Students learn how to use widgets in Streamlit for interactivity
+city = st.selectbox("Select a city:", df2["City"].unique()) # returns a dropdown list of unique city name options
 
 # Filtering the DataFrame based on user selection
+filtered_df = df2[df2["City"] == city]
 
 # Display the filtered results
-
+st.write(f"People in {city}:")
+st.dataframe(filtered_df)
 
 # ================================
 # Step 3: Importing Data Using a Relative Path
@@ -43,8 +52,10 @@ st.dataframe(df)
 
 # Using a selectbox to allow users to filter data by city
 # Students learn how to use widgets in Streamlit for interactivity
+salary = st.slider("Choose a salary range:", min_value= df2["Salary"].min(), max_value=df2["Salary"].max())
 
 # Filtering the DataFrame based on user selection
+st.dataframe(df2[df2['Salary'] <= salary])
 
 # Display the filtered results
 
