@@ -1,0 +1,25 @@
+Year,Movie,Bond,Director,Bond Car Manufacturer,U.S. Gross,Adjusted U.S. Gross,World Gross,Adjusted World Gross,Budget,Adjusted Budget,Film Length,Avg. User Rating - IMDB,Avg. User Rating - Rotten Tomatoes,Martinis Consumed,Bond James Bond Count,Kills by Bond,Kills by Others
+1962,Dr. No,Sean Connery,Terence Young,Sunbeam,16067035,123517,59567035,457928,1000,7688,110,7.3,7.7,2,1,4,8
+1963,From Russia with Love,Sean Connery,Terence Young,Bently,24800000,188161,78900000,598624,2000,15174,115,7.5,8,0,0,11,16
+1964,Goldfinger,Sean Connery,Guy Hamilton,Aston Martin,51100000,382699,124900000,935404,3000,22468,110,7.8,8.4,1,2,9,68
+1965,Thunderball,Sean Connery,Terence Young,Aston Martin,63600000,468754,141200000,1040693,9000,66333,130,7,6.8,0,0,20,90
+1967,You Only Live Twice,Sean Connery,Lewis Gilbert,Toyota,43100000,299591,111600000,775740,9500,66035,117,6.9,6.3,1,0,21,175
+1969,On Her Majesty's Secret Service,George Lazenby,Peter R. Hunt,Mercury,22800000,144234,82000000,518736,8000,50608,142,6.8,6.7,1,2,5,37
+1971,Diamonds Are Forever,Sean Connery,Guy Hamilton,Ford,43800000,251083,116000000,664969,7200,41274,120,6.7,6.3,0,1,7,42
+1973,Live and Let Die,Roger Moore,Guy Hamilton,AMC,35400000,185105,161800000,846046,7000,36603,121,6.8,5.9,0,1,8,5
+1974,The Man with the Golden Gun,Roger Moore,Guy Hamilton,AMC,21000000,98894,97600000,459623,7000,32965,125,6.7,5.1,0,2,1,5
+1977,The Spy Who Loved Me,Roger Moore,Lewis Gilbert,Lotus,46800000,179297,185400000,710290,14000,53636,125,7.1,6.8,1,1,31,116
+1979,Moonraker,Roger Moore,Lewis Gilbert,Lotus,70300000,224811,210300000,672514,31000,99134,126,6.2,5.7,1,1,12,69
+1981,For Your Eyes Only,Roger Moore,John Glen,Citroën,54800000,139964,195300000,498812,28000,71514,127,6.8,6.3,0,2,18,36
+1983,Octopussy,Roger Moore,John Glen,Bajaj,67900000,158274,187500000,437059,27500,64102,131,6.5,5.3,0,1,15,43
+1985,A View to a Kill,Roger Moore,John Glen,Rolls Royce,50327960,108592,152627960,329322,30000,64730,131,6.2,4.7,0,2,5,57
+1987,The Living Daylights,Timothy Dalton,John Glen,Rolls Royce,51185000,104608,191200000,390758,40000,81749,130,6.7,6.3,2,1,13,29
+1989,License to Kill,Timothy Dalton,John Glen,Aston Martin,34667015,64907,156167015,292392,42000,78637,133,6.5,6,1,1,10,13
+1995,GoldenEye,Pierce Brosnan,Martin Campbell,BMW,106429941,162135,356429941,542985,60000,91404,130,7.2,6.9,1,1,47,25
+1997,Tomorrow Never Dies,Pierce Brosnan,Roger Spottiswoode,Aston Martin,125304276,181254,339504276,491098,110000,159117,119,6.4,6,1,1,30,24
+1999,The World Is Not Enough,Pierce Brosnan,Michael Apted,BMW,126930660,176885,361730660,504091,135000,188130,128,6.3,5.7,1,2,27,43
+2002,Die Another Day,Pierce Brosnan,Lee Tamahori,Aston Martin,160942139,207700,431942139,557433,142000,183255,133,6,6.1,2,1,31,20
+2006,Casino Royale,Daniel Craig,Martin Campbell,Aston Martin,167365000,192740,596365000,686784,102000,117465,144,7.9,7.8,3,1,11,11
+2008,Quantum of Solace,Daniel Craig,Marc Forster,Aston Martin,169368427,182633,591692078,638035,230000,248014,106,6.7,6.1,6,0,16,15
+2012,Skyfall,Daniel Craig,Sam Mendes,Aston Martin,304360277,307770,1108561108,1120980,200000,202240,143,7.8,8.2,1,1,26,26
+2015,Spectre,Daniel Craig,Sam Mendes,Aston Martin,200074175,196647,879620923,864553,245000,240803,148,6.8,6.4,1,1,30,205
