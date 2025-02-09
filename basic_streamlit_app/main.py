@@ -8,7 +8,6 @@ import pandas as pd
 st.set_page_config(layout="wide")
 col1, col2, col3 = st.columns([3, 1, 1])
 
-
 # ====================================
 # READ CSV AND PREPARE IT FOR DISPLAY
 # ====================================
@@ -16,7 +15,6 @@ col1, col2, col3 = st.columns([3, 1, 1])
 df = pd.read_csv("data/data.csv")
 df["Avg. User Rating - IMDB"] = pd.to_numeric(df["Avg. User Rating - IMDB"])
 df["Avg. User Rating - Rotten Tomatoes"] = pd.to_numeric(df["Avg. User Rating - Rotten Tomatoes"])
-# Sample data credit: SILFHJASDLFJKHASDKLJFHASDLF
 
 # ============
 # MAIN DISPLAY 
@@ -101,4 +99,6 @@ if bjb:
 with col1:
     st.subheader("Filtered Results")
     st.dataframe(df) 
+
+# In the future, I may want to learn how to remove commas from the "Year" column and display only one dataframe, rather than two, after filters are applied.
 
