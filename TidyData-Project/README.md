@@ -7,7 +7,16 @@ The objective is for viewers of the tidied dataset to be able to visualize the d
 
 ## **⬇️ Installation**
 
-To install Project Title, follow these steps:
+**Requirements**
+Before you begin installation, make sure you have the following installed to your coding environment:
+* Jupyter Notebooks
+* Python
+* Pandas
+* Seaborn
+* Matplotlib
+
+
+To install **Tidy Data Project: Federal R&D Budget**, follow these steps:
 
 1. Clone the repository: **`git clone https://github.com/cozette-brown/TidyData-Project.git`**
 2. Navigate to the project directory: **`cd TidyData-Project`**
