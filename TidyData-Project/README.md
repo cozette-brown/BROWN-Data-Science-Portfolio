@@ -11,11 +11,11 @@ To install Project Title, follow these steps:
 
 1. Clone the repository: **`git clone https://github.com/cozette-brown/TidyData-Project.git`**
 2. Navigate to the project directory: **`cd TidyData-Project`**
-3. Install dependencies: **`npm install`**
+3. Install dependencies: **`pip install -r requirements.txt`**
 4. Build the project: **`npm run build`**
 5. Start the project: **`npm start`**
 
-## **Usage**
+## **  Usage**
 
 To use Project Title, follow these steps:
 
