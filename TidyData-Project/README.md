@@ -2,12 +2,21 @@
 
 ***Tidy Data Project: Federal R&D Budget*** applies the principles of tidy data in order to tidy a Federal R&D Budget dataset ('fed_rd_year&gdp.csv') and create data visualizations from the tidied data, all within one Jupyter Notebook.<br><br>
 The objective is for viewers of the tidied dataset to be able to visualize the data in two meaningful ways:
-1. **By Year:** See the amount budgeted to each department for a single year
-2. **By Department:** See the amount budgeted to a single department for each year
+1. **Comparatively by Department:** See changes over time within a department, or compare departments for each fiscal year.
+2. **As a Percentage of GDP:** See changes in the total budgeted for R&D as a percentage of US GDP over time.
 
 ## **⬇️ Installation**
 
-To install Project Title, follow these steps:
+**Requirements**
+Before you begin installation, make sure you have the following installed to your coding environment:
+* Jupyter Notebooks
+* Python
+* Pandas
+* Seaborn
+* Matplotlib
+
+
+To install **Tidy Data Project: Federal R&D Budget**, follow these steps:
 
 1. Clone the repository: **`git clone https://github.com/cozette-brown/TidyData-Project.git`**
 2. Navigate to the project directory: **`cd TidyData-Project`**
