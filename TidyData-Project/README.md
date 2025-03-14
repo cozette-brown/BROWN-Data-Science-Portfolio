@@ -1,11 +1,11 @@
-# **Tidy Data Project: Federal R&D Budget**
+# **💵 Tidy Data Project: Federal R&D Budget**
 
-**Tidy Data Project: Federal R&D Budget** applies the principles of tidy data using Python in order to tidy a Federal R&D Budget dataset ('fed_rd_year&gdp.csv') and create data visualizations from the tidied data.<br><br>
+***Tidy Data Project: Federal R&D Budget*** applies the principles of tidy data in order to tidy a Federal R&D Budget dataset ('fed_rd_year&gdp.csv') and create data visualizations from the tidied data, all within one Jupyter Notebook.<br><br>
 The objective is for viewers of the tidied dataset to be able to visualize the data in two meaningful ways:
 1. **By Year:** See the amount budgeted to each department for a single year
 2. **By Department:** See the amount budgeted to a single department for each year
 
-## **Installation**
+## **⬇️ Installation**
 
 To install Project Title, follow these steps:
 
@@ -28,18 +28,17 @@ To use Project Title, follow these steps:
 ## **Data Viewing Guide** 
 
 The tidied dataset has four columns:
-| variable      | class | description                                                       |
-| ------------- | ----- | ----------------------------------------------------------------- |
-| department    |       | US agency/department                                              |
-| rd_budget     |       | Research and Development dollars in inflation-adjusted US dollars |
-| year          |       | Fiscal Year                                                       |
-| total_gdp     |       | Total US Gross Domestic Product in inflation-adjusted US dollars  |
+| variable      | class     | description                                                       |
+| ------------- | --------- | ----------------------------------------------------------------- |
+| department    | object    | US agency/department                                              |
+| rd_budget     | float64   | Research and Development dollars in inflation-adjusted US dollars |
+| year          | object    | Fiscal Year                                                       |
+| total_gdp     | float64   | Total US Gross Domestic Product in inflation-adjusted US dollars  |
 
-
-<br><br>
+<br>
 
 For your reference, here are the abbreviations for each US agency/department:
-* DOD - Deparment of Defense
+* DOD - Department of Defense
 * NASA - National Aeronautics and Space Administration
 * DOE - Department of Energy
 * HHS - Department of Health and Human Services
