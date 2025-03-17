@@ -77,7 +77,7 @@ This project is part of a portfolio released under the MIT License. See the port
 
 I created this project with help from the following sources:
 * [Pandas Data Wrangling Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf) by Pydata
-* [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) by Hadley Wickham, Journal of Statistical Software
+* [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) by Hadley Wickham, *Journal of Statistical Software*
 * Lectures from Professor David Smiley, University of Notre Dame
 
 Plus assistance from these other resources I recommend:
