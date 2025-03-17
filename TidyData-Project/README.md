@@ -36,7 +36,7 @@ To install **Tidy Data Project: Federal R&D Budget**, follow these steps:
 To use **Tidy Data Project: Federal R&D Budget**, follow these steps:
 
 1. **Run the Jupyter Notebook:** Open and run the .ipynb file in your favorite coding environment (will require a Python environment)
-2. **Follow the Notebook** Read through the notebook to see an explanation of the data tidying process used before viewing visualizations.
+2. **Follow the Notebook:** Read through the notebook to see an explanation of the data tidying process used before viewing visualizations.
 3. **Explore Results:** View some general visualizations and insights at the end of the notebook.
 
 ## Data
