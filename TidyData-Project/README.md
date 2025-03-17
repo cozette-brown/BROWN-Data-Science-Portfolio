@@ -1,6 +1,6 @@
 # Tidy Data Project: Federal R&D Budget
 
-***Tidy Data Project: Federal R&D Budget*** applies the principles of tidy data in order to tidy a Federal R&D Budget dataset `fed_rd_year&gdp.csv` and create data visualizations from the tidied data, using a Jupyter Notebook.<br><br>
+***Tidy Data Project: Federal R&D Budget*** applies the principles of tidy data in order to tidy a Federal R&D Budget dataset `fed_rd_year&gdp.csv` and create data visualizations from the data, using a Jupyter Notebook.<br><br>
 
 I've followed these basic principles of tidy data for my project of reshaping the original dataset:
 * Each variable is in its own column
