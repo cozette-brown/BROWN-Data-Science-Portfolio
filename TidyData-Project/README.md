@@ -29,8 +29,7 @@ To install **Tidy Data Project: Federal R&D Budget**, follow these steps:
 1. Clone the repository: **`git clone https://github.com/cozette-brown/TidyData-Project.git`**
 2. Navigate to the project directory: **`cd TidyData-Project`**
 3. Install dependencies: **`pip install -r requirements.txt`**
-4. Build the project: **`npm run build`**
-5. Start the project: **`npm start`**
+4. Run the project: **`federal_r&d_datacleaning_and_visualization.ipynb`**
 
 ## **Usage**
 
