@@ -19,8 +19,7 @@ My end objective is to give viewers of the tidied dataset the capabilities to vi
 - [Data](#data)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
-- [Screenshots](#screenshots)
-
+  
 ## **Installation**
 
 **Requirements:** <br>
@@ -78,7 +77,4 @@ This project is part of a portfolio released under the MIT License. See the port
 ## Acknowledgements
 
 **Tidy Data Project: Federal R&D Budget** was created by **[Cozette Brown](https://github.com/cozette-brown)**.
-
-## Screenshots
-[![View my data science portfolio](data-science-portfolio-button.jpg)](https://www.github.com/cozette-brown/BROWN-Data-Science-Portfolio)
 
