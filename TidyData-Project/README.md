@@ -9,7 +9,7 @@ I've followed these basic principles of tidy data for my project of reshaping th
 
 The included Jupyter notebook contains a more detailed, step-by-step description of what I did to tidy the data.<br><br>
 
-My end objective is for viewers of the tidied dataset to be able to visualize the data in two meaningful ways:
+My end objective is to give viewers of the tidied dataset the capabilities to visualize the data in two meaningful ways:
 1. **Comparatively by Department:** See changes over time within a department, or compare departments for each fiscal year.
 2. **As a Percentage of GDP:** See changes in the total budgeted for R&D as a percentage of US GDP over time.
 
@@ -42,7 +42,7 @@ To use **Tidy Data Project: Federal R&D Budget**, follow these steps:
 
 ## Data
 
-This project uses the dataset fed_rd_year&gdp.csv. Provided by David Smiley for the University of Notre Dame's *MDSC 20009: Introduction to Data Science* course. Adapted from [fed_r_d_spending.csv](https://github.com/rfordatascience/tidytuesday/blob/main/data/2019/2019-02-12/fed_r_d_spending.csv) on GitHub.
+This project uses the dataset **`fed_rd_year&gdp.csv`**. Provided by David Smiley for the University of Notre Dame's *MDSC 20009: Introduction to Data Science* course. Adapted from [fed_r_d_spending.csv](https://github.com/rfordatascience/tidytuesday/blob/main/data/2019/2019-02-12/fed_r_d_spending.csv) on GitHub.
 
 The tidied dataset has four columns:
 | variable      | class     | description                                                       |
