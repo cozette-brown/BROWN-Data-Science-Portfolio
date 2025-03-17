@@ -1,7 +1,15 @@
 # Tidy Data Project: Federal R&D Budget
 
 ***Tidy Data Project: Federal R&D Budget*** applies the principles of tidy data in order to tidy a Federal R&D Budget dataset ('fed_rd_year&gdp.csv') and create data visualizations from the tidied data, using a Jupyter Notebook.<br><br>
-The objective is for viewers of the tidied dataset to be able to visualize the data in two meaningful ways:
+
+I've followed these basic principles of tidy data for my project of reshaping the original dataset:
+* Each variable is in its own column
+* Each observation is in its own row
+* Each observational unit forms its own table
+
+The included Jupyter notebook contains a more detailed, step-by-step description of what I did to tidy the data.<br><br>
+
+My end objective is for viewers of the tidied dataset to be able to visualize the data in two meaningful ways:
 1. **Comparatively by Department:** See changes over time within a department, or compare departments for each fiscal year.
 2. **As a Percentage of GDP:** See changes in the total budgeted for R&D as a percentage of US GDP over time.
 
