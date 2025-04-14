@@ -22,7 +22,7 @@ st.set_page_config(layout="wide")
 # Displaying application summary information to user
 st.title("Machine Learning Application")
 st.markdown("""
-### 🗒️ About the Application
+### :spiral_note_pad: About the Application
 This application allows you to apply various machine learning models to an uploaded dataset. 
 With abilities to choose from various machine learning models, experiment with hyperparameters, 
 and compare the performance between models, this application allows for easy data exploration
