@@ -15,7 +15,8 @@ My end objective is to give users the ability to quickly train machine learning 
 - [Usage](#usage)
 - [Data](#data)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
+- [References](#references)
+- [Screenshots](#screenshots)
   
 ## **Installation**
 
