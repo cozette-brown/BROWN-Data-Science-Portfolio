@@ -59,7 +59,7 @@ This project is part of a portfolio released under the MIT License. See the port
 I created this project with help from the following sources:
 * Leung, K. (2023). "Micro, Macro & Weighted Averaged of F1 Score, Clearly Explained."
 * Serrano, L.G. (2021). *Grokking Machine Learning,* Manning Publications Co.
-* Lectures from Professor David Smiley, University of Notre Dame
+* Lectures and .ipynb files from Professor David Smiley, University of Notre Dame
 
 Plus assistance from these other resources I recommend:
 * [Geeks for Geeks](https://geeksforgeeks.org)
