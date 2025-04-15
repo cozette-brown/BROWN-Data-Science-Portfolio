@@ -1,6 +1,6 @@
 # Machine Learning Streamlit Application
 
-This ***Machine Learning Streamlit Application*** allows users to select and train a supervised machine learning model using a sample dataset or their own uploaded .csv file. Users can preview their dataset, experiment with hyperparameters, and view changes to their model performance metrics as they tune.<br><br>
+This ***Machine Learning Streamlit Application*** allows users to select and train supervised machine learning models using a sample dataset or their own uploaded .csv file. Users can preview their dataset, experiment with hyperparameters, and view changes to their model performance metrics as they tune.<br><br>
 
 This app includes the following machine learning models:
 * Linear Regression
@@ -8,7 +8,7 @@ This app includes the following machine learning models:
 * K-Nearest Neighbors
 * Decision Tree
 
-My end objective is to give users the ability to quickly train machine learning models suitable for their various needs without having to write their own code.
+My end objective is to give users the ability to quickly train machine learning models suitable for their various needs, all without having to write their own code.
 
 ## Table of contents
 - [Installation](#installation)
@@ -35,10 +35,10 @@ To use **MLStreamlitApp**, follow these steps:
 
 1. **Run the Streamlit App:** Navigate to the MLStreamlitApp directory and run the project with **`streamlit run main.py`
 2. **Upload or Select a Dataset** Select a sample dataset from sklearn.datasets or upload your own .csv file *(NOTE: At this time, the application only supports files which are already prepared for machine learning models. Please tidy and preprocess data before uploading.)*
-3. **Select a Target Variable:** For sample datasets, there are already set 'target' variables—but in some cases, you can choose a different variable.
+3. **Select a Target Variable:** For sample datasets, there are already set 'target' variables, but in some cases you can choose a different variable.
 4. **Select a Machine Learning Model:** Choose from Linear Regression, Logistic Regression, K-Nearest Neighbors, or Decision Tree. The application will warn you if the selected model is not appropriate for your selected sample dataset.
 5. **Adjust Hyperparameters:** Adjust C for Logistic Regression; Number of Neighbors for K-Nearest Neighbors; and Max Depth, Minimum Samples Split, and Minimum Samples Leaf for Decision Tree.
-6. **View Model Performance Metrics:** Analyze MSE, RMSE, and R² Score for Linear Regression, or Accuracy, Precision, Recall (Sensitivity), and F1-Score for other machine learning models. Each metric summary comes with a short guide to interpreting the results.
+6. **View Model Performance Metrics:** Analyze MSE, RMSE, and R² Score for Linear Regression, or analyze Accuracy, Precision, Recall (Sensitivity), and F1-Score for other machine learning models. Each metric summary comes with a short guide to interpreting the results.
 
 ## Data
 
