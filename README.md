@@ -14,3 +14,12 @@ This project in Jupyter Notebooks applies the principles of tidy data in order t
 * Pandas
 * Matplotlib
 * Seaborn
+
+### 3. Machine Learning App ([view here](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/tree/main/MLStreamlitApp)
+This Streamlit app allows users to use various machine learning models, experiment with hyperparameters, and evaluate models using either sample datasets or their own uploaded file.<br><br>
+**Tools & Skills Showcased:**
+* Python
+* Streamlit
+* Machine Learning w/ Sklearn
+* Matplotlib
+* Seaborn
