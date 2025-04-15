@@ -9,7 +9,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import (
     accuracy_score, classification_report, confusion_matrix,
     roc_auc_score, roc_curve, mean_squared_error, r2_score,
-    root_mean_squared_error
 )
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -215,7 +214,7 @@ with col1:
     else:
         mse = mean_squared_error(y_test, y_pred)
         r2 = r2_score(y_test, y_pred)
-        rmse = root_mean_squared_error
+        rmse = np.sqrt(mse)
         st.write(f"**Mean Squared Error (MSE):** {mse:.2f}")
         st.write(f"**Root Mean Squared Error (RMSE):** {rmse:.2f}")
         st.write(f"**R² Score:** {r2:.2f}")
