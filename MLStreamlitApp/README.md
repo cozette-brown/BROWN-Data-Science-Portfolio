@@ -60,6 +60,7 @@ I created this project with help from the following sources:
 * Lectures and .ipynb files from Professor David Smiley, University of Notre Dame
 * Leung, K. (2023). "Micro, Macro & Weighted Averaged of F1 Score, Clearly Explained."
 * [Scikit-learn LabelEncoder documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html)
+* [Scikit-learn LinearRegression Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
 * Serrano, L.G. (2021). *Grokking Machine Learning,* Manning Publications Co.
 
 Plus assistance from these other resources I recommend:

@@ -35,7 +35,8 @@ col1, col2 = st.columns([1,3])
 # DATASET SELECTION
 # -----------------
 
-# "Sidebar" for dataset upload and sample dataset selection
+# Step 1: Upload or Select a Dataset
+
 with col1:
     st.subheader(":one: Upload or Select a Dataset")
     dataset = st.selectbox('Dataset selection', ['Diabetes', 'Breast Cancer', 'Iris', 'Wine', 'Upload Your Own'])
@@ -102,9 +103,9 @@ y = df[target_col]
 # --------------------------
 
 # Train-test split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) # random state used to ensure consistent results
 
-# Model selection
+# Selecting a Model
 with col1:
     model_name = st.selectbox("Select a model", ["Linear Regression", "Logistic Regression", "K-Nearest Neighbors", "Decision Tree"])
     if model_name == "Logistic Regression": # Classification
@@ -134,13 +135,13 @@ with col1:
         else:
             model = LinearRegression()
 
-# Encode categorical target if classification and necessary
+# Encoding categorical target (if necessary for classification model)
 if model_type == "Classification":
     if y.dtype == 'object':
         le = LabelEncoder()
         y = le.fit_transform(y)
     elif y.dtype in ['float64', 'float32'] and len(np.unique(y)) > 10:
-        st.error("The selected target appears to be continuous. Please select a categorical target column to use a classification model.")
+        st.error("Your selected target appears to be continuous. Please select a categorical target column to use a classification model.")
         st.stop()
 else:
     pass
@@ -155,7 +156,6 @@ y_pred = model.predict(X_test)
     
 with col2:
 
-    # Output
     st.subheader("Model Visualization(s)")
 
     col2a, col2b = st.columns([1,1])
@@ -199,6 +199,7 @@ with col2:
             pass
 
 with col1:
+    # Model Performance Metrics
     st.subheader("Model Performance Metrics")
 
     if model_type == "Classification":
@@ -214,11 +215,11 @@ with col1:
     else:
         mse = mean_squared_error(y_test, y_pred)
         r2 = r2_score(y_test, y_pred)
-        rmse = np.sqrt(mse)
+        rmse = root_mean_squared_error
         st.write(f"**Mean Squared Error (MSE):** {mse:.2f}")
         st.write(f"**Root Mean Squared Error (RMSE):** {rmse:.2f}")
         st.write(f"**R² Score:** {r2:.2f}")
-
+    # Interpretation Guide
     if model_name == 'Linear Regression':
         st.info("Interpretation: In general, your model should aim for low MSE and RMSE scores, R² scores closer to 1.")
     else:
