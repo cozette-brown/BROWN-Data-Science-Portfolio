@@ -21,7 +21,7 @@ My end objective is to give users the ability to quickly train machine learning 
 ## **Installation**
 
 **Requirements:** <br>
-This project uses a Python environment on Jupyter Notebooks.
+This project is available on the Streamlit Community Cloud at [cozettebrown-machine-learning-app.streamlit.io](cozettebrown-machine-learning-app.streamlit.io)
 
 To install **MLStreamlitApp**, follow these steps:
 1. Clone the repository: **`git clone https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/MLStreamlitApp.git`**
