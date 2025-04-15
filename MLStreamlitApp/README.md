@@ -1,73 +1,54 @@
-# Machine Learning Project
+# Machine Learning Streamlit Application
 
-This ***Machine Learning Project*** applies the principles of tidy data in order to tidy a Federal R&D Budget dataset `fed_rd_year&gdp.csv` and create data visualizations from the data, using a Jupyter Notebook.<br><br>
+This ***Machine Learning Streamlit Application*** allows users to select and train a supervised machine learning model using a sample dataset or their own uploaded .csv file. Users can preview their dataset, experiment with hyperparameters, and view changes to their model performance metrics as they tune.<br><br>
 
-I've followed these basic principles of tidy data for my project of reshaping the original dataset:
-* Each variable is in its own column
-* Each observation is in its own row
-* Each observational unit forms its own table
+This app includes the following machine learning models:
+* Linear Regression
+* Logistic Regression
+* K-Nearest Neighbors
+* Decision Tree
 
-The included Jupyter notebook contains a more detailed, step-by-step description of what I did to tidy the data.<br><br>
-
-My end objective is to give viewers of the tidied dataset the capabilities to visualize the data in two meaningful ways:
-1. **Comparatively by Department:** See changes over time within a department, or compare departments for each fiscal year.
-2. **As a Percentage of GDP:** See changes in the total budgeted for R&D as a percentage of US GDP over time.
+My end objective is to give users the ability to quickly train machine learning models suitable for their various needs without having to write their own code.
 
 ## Table of contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Data](#data)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
+- [References](#references)
+- [Screenshots](#screenshots)
   
 ## **Installation**
 
 **Requirements:** <br>
 This project uses a Python environment on Jupyter Notebooks.
 
-To install **Tidy Data Project: Federal R&D Budget**, follow these steps:
-1. Clone the repository: **`git clone https://github.com/cozette-brown/TidyData-Project.git`**
-2. Navigate to the project directory: **`cd TidyData-Project`**
+To install **MLStreamlitApp**, follow these steps:
+1. Clone the repository: **`git clone https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/MLStreamlitApp.git`**
+2. Navigate to the project directory: **`cd MLStreamlitApp`**
 3. Install dependencies: **`pip install -r requirements.txt`**
-4. Run the project: **`federal_r&d_datacleaning_and_visualization.ipynb`**
+4. Run the project: **`streamlit run main.py`**
 
 ## **Usage**
 
-To use **Tidy Data Project: Federal R&D Budget**, follow these steps:
+To use **MLStreamlitApp**, follow these steps:
 
-1. **Run the Jupyter Notebook:** Open and run the .ipynb file in your favorite coding environment (will require a Python environment)
-2. **Follow the Notebook:** Read through the notebook to see an explanation of the data tidying process used before viewing visualizations.
-3. **Explore Results:** View some general visualizations and insights at the end of the notebook.
+1. **Run the Streamlit App:** Navigate to the MLStreamlitApp directory and run the project with **`streamlit run main.py`
+2. **Upload or Select a Dataset** Select a sample dataset from sklearn.datasets or upload your own .csv file *(NOTE: At this time, the application only supports files which are already prepared for machine learning models. Please tidy and preprocess data before uploading.)*
+3. **Select a Target Variable:** For sample datasets, there are already set 'target' variables—but in some cases, you can choose a different variable.
+4. **Select a Machine Learning Model:** Choose from Linear Regression, Logistic Regression, K-Nearest Neighbors, or Decision Tree. The application will warn you if the selected model is not appropriate for your selected sample dataset.
+5. **Adjust Hyperparameters:** Adjust C for Logistic Regression; Number of Neighbors for K-Nearest Neighbors; and Max Depth, Minimum Samples Split, and Minimum Samples Leaf for Decision Tree.
+6. **View Model Performance Metrics:** Analyze MSE, RMSE, and R² Score for Linear Regression, or Accuracy, Precision, Recall (Sensitivity), and F1-Score for other machine learning models. Each metric summary comes with a short guide to interpreting the results.
 
 ## Data
 
-This project uses the dataset **`fed_rd_year&gdp.csv`**. Provided by David Smiley for the University of Notre Dame's *MDSC 20009: Introduction to Data Science* course. Adapted from `fed_r_d_spending.csv` on GitHub (see it [here](https://github.com/rfordatascience/tidytuesday/blob/main/data/2019/2019-02-12/fed_r_d_spending.csv)).
+This project uses the following sample datasets from sklearn.datasets:
+* Diabetes (regression)
+* Breast Cancer Wisconsin (classification)
+* Iris (classification)
+* Wine (classification)
 
-The tidied dataset has four columns:
-| variable      | class     | description                                                       |
-| ------------- | --------- | ----------------------------------------------------------------- |
-| department    | object    | US agency/department                                              |
-| rd_budget     | float64   | Research and Development dollars in inflation-adjusted US dollars |
-| year          | object    | Fiscal Year                                                       |
-| total_gdp     | float64   | Total US Gross Domestic Product in inflation-adjusted US dollars  |
-
-<br>
-
-For your reference, here are the abbreviations for each US agency/department:
-* DOD - Department of Defense
-* NASA - National Aeronautics and Space Administration
-* DOE - Department of Energy
-* HHS - Department of Health and Human Services
-* NIH - National Institute of Health
-* NSF - National Science Foundation
-* USDA - US Department of Agriculture
-* Interior - Department of Interior
-* DOT - Department of Transportation
-* EPA - Environmental Protection Agency
-* DOC - Department of Corrections
-* DHS - Department of Homeland Security
-* VA - Department of Veterans Affairs
-* Other - Other research and development spending
+Learn more about the datasets [here](https://scikit-learn.org/stable/api/sklearn.datasets.html) on the Scikit Learn API Reference.
 
 ## License
 
@@ -76,13 +57,14 @@ This project is part of a portfolio released under the MIT License. See the port
 ## References
 
 I created this project with help from the following sources:
-* [Pandas Data Wrangling Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf) by Pydata
-* [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) by Hadley Wickham, *Journal of Statistical Software*
+* Leung, K. (2023). "Micro, Macro & Weighted Averaged of F1 Score, Clearly Explained."
+* Serrano, L.G. (2021). *Grokking Machine Learning,* Manning Publications Co.
 * Lectures from Professor David Smiley, University of Notre Dame
 
 Plus assistance from these other resources I recommend:
 * [Geeks for Geeks](https://geeksforgeeks.org)
 * [W3 Schools](https://www.w3schools.com)
+* [Streamlit Emoji Shortcodes](https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
 
 ## Screenshots
 ![image](sample_screenshot.png)
