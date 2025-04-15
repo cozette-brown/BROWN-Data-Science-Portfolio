@@ -1,204 +1,226 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-from sklearn.datasets import fetch_california_housing
-from sklearn.linear_model import LinearRegression
+import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_squared_error, r2_score, root_mean_squared_error
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-from sklearn.linear_model import LogisticRegression
-
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression, LinearRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.metrics import (
+    accuracy_score, classification_report, confusion_matrix,
+    roc_auc_score, roc_curve, mean_squared_error, r2_score,
+    root_mean_squared_error
+)
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # --------------------------------
-# Application Configuration & Info
+# APP CONFIGURATION & INFO DISPLAY
 # --------------------------------
 
-# Setting to widescreen
 st.set_page_config(layout="wide")
 
-# Displaying application summary information to user
-st.title("Machine Learning Application")
+st.title(":desktop_computer: Machine Learning Application")
 st.markdown("""
-### :spiral_note_pad: About the Application
-This application allows you to apply various machine learning models to an uploaded dataset. 
-With abilities to choose from various machine learning models, experiment with hyperparameters, 
-and compare the performance between models, this application allows for easy data exploration
-whether you use a sample dataset or upload your own. The application's comparative layout also
-helps you quickly find models that fit your needs based on the performance metrics you care about.
-            
-:exclamation: NOTE: This application works best on a fullscreen desktop view.
-""")
+This application allows you to apply various machine learning models to either an uploaded or selected sample dataset.
+For all sample datasets, the application can advise you whether to use a regression or classification model, then provide
+multiple modeling options for each. This application allows for you to experiment with hyperparameters and view changes
+to model performance in real time, allowing for you to easily find the best models for whatever metrics you care about most.""")
+st.write("  ") # empty space as separator
+st.write("  ") # empty space as separator
 
-# Configuring app interface with a column layout
-col1, col2, col3 = st.columns([1, 1, 3])
+col1, col2 = st.columns([1,3])
 
 # -----------------
-# Dataset Selection
+# DATASET SELECTION
 # -----------------
 
+# "Sidebar" for dataset upload and sample dataset selection
 with col1:
-    st.subheader(":one: Select and View Your Dataset")
+    st.subheader(":one: Upload or Select a Dataset")
+    dataset = st.selectbox('Dataset selection', ['Diabetes', 'Breast Cancer', 'Iris', 'Wine', 'Upload Your Own'])
 
-    dataset = st.selectbox('Dataset selection', ['Titanic', 'California Housing', 'Upload Your Own'])
-
-    if dataset == 'Titanic':
-        df = sns.load_dataset('titanic')
-    elif dataset == 'California Housing':
-        housing = fetch_california_housing()
-        df = pd.DataFrame(housing.data, columns=housing.feature_names)
+    if dataset == 'Diabetes': 
+        appropriate_model_type = 'regression'
+        from sklearn.datasets import load_diabetes
+        data = load_diabetes()
+        df = pd.DataFrame(data.data, columns=data.feature_names)
+        df['target'] = data.target
+    elif dataset == 'Breast Cancer':
+        appropriate_model_type = 'classification'
+        from sklearn.datasets import load_breast_cancer
+        data = load_breast_cancer()
+        df = pd.DataFrame(data.data, columns=data.feature_names)
+        df['target'] = data.target
+    elif dataset == 'Iris':
+        appropriate_model_type = 'classification'
+        from sklearn.datasets import load_iris
+        data = load_iris()
+        df = pd.DataFrame(data.data, columns=data.feature_names)
+        df['target'] = data.target
+    elif dataset == 'Wine':
+        appropriate_model_type = 'classification'
+        from sklearn.datasets import load_wine
+        data = load_wine()
+        df = pd.DataFrame(data.data, columns=data.feature_names)
+        df['target'] = data.target
     elif dataset == 'Upload Your Own':
-        file = st.file_uploader('Upload your .csv file here:')
-        if file is not None:
-            df = pd.read_csv(file)
-        else:
-            st.warning("Please upload a CSV file.")
-            st.stop()
+            appropriate_model_type = 'none'
+            uploaded_file = st.file_uploader("Upload a valid .csv file.", type=["csv"])
+            df = pd.read_csv(uploaded_file)
+    else:
+        st.warning("Please upload a dataset or use the sample dataset to proceed.")
+        st.stop()
 
-# ------------------------
-# Select Feature Variables
-# ------------------------
+# ---------------
+# DATASET PREVIEW
+# ---------------
+
+# Show dataset
+with col2:
+    st.subheader(f"Dataset Preview: {dataset}")
+    if dataset == 'Upload Your Own':
+        st.info('Developer\'s Note: You must prepare the dataset for use in appropriate machine learning models prior to uploading. Otherwise, you may encounter errors when using the application\'s machine learning algorithms.')
+    st.dataframe(df)
+
+# ------------------
+# DATA PREPROCESSING
+# ------------------
 
 with col1:
-    st.subheader(":two: Select Feature Variables")
+    st.subheader(":two: Select and Adjust Model")
+    # Select target and features
+    columns = df.columns.tolist()
+    target_col = st.selectbox("Select the target column", columns)
+    features = [col for col in columns if col != target_col]
 
-    feature_vars = st.multiselect('Feature Variables', df.columns, default=df.columns)
+X = df[features]
+y = df[target_col]
 
-# ------------------
-# Data Preprocessing
-# ------------------
+# --------------------------
+# MODEL TRAINING & SELECTION
+# --------------------------
 
-if 'df_clean' not in st.session_state:
-    st.session_state.df_clean = df.copy()
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+# Model selection
+with col1:
+    model_name = st.selectbox("Select a model", ["Linear Regression", "Logistic Regression", "K-Nearest Neighbors", "Decision Tree"])
+    if model_name == "Logistic Regression": # Classification
+        model_type = "Classification"
+        if appropriate_model_type == 'regression':
+            st.warning("Please use a regression model with this dataset.")
+        else:
+            C = st.slider("C (Inverse of Regularization Strength)", 0.01, 10.0, 1.0)
+            model = LogisticRegression(C=C, max_iter=1000)
+    elif model_name == "K-Nearest Neighbors": # Classification
+        model_type = "Classification"
+        if appropriate_model_type == 'regression':
+            st.warning("Please use a regression model with this dataset.")
+        else:
+            k = st.slider("Number of Neighbors (k)", 1, 20, 5)
+            model = KNeighborsClassifier(n_neighbors=k)
+    elif model_name == "Decision Tree": # Classification & Regression
+        model_type = "Classification"
+        max_depth = st.slider("Max Depth", 1, 20, 5)
+        min_samples_split = st.slider("Minimum Samples Split", 2, 20, 2)
+        min_samples_leaf = st.slider("Minimum Samples Leaf", 1, 20, 1)
+        model = DecisionTreeClassifier(max_depth=max_depth, min_samples_leaf=min_samples_leaf, min_samples_split=min_samples_split)
+    elif model_name == "Linear Regression": # Regression
+        model_type = "Regression"
+        if appropriate_model_type == 'classification':
+            st.warning("Please use a classification model with this dataset.")
+        else:
+            model = LinearRegression()
+
+# Encode categorical target if classification and necessary
+if model_type == "Classification":
+    if y.dtype == 'object':
+        le = LabelEncoder()
+        y = le.fit_transform(y)
+    elif y.dtype in ['float64', 'float32'] and len(np.unique(y)) > 10:
+        st.error("The selected target appears to be continuous. Please select a categorical target column to use a classification model.")
+        st.stop()
+else:
+    pass
+
+# Train model
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+# ------------
+# VIEW RESULTS
+# ------------
+    
 with col2:
-    st.subheader(":three: Preprocess Data")
-    
-    # Selecting column to clean
-    column = st.selectbox("Choose a column to fill", df.select_dtypes(include=['number', 'bool', 'object']).columns)
-    method = st.radio("Choose a method", [
-        "Original DF", 
-        "Drop Rows", 
-        "Drop Columns (>50% Missing)",
-        "Impute Mean", 
-        "Impute Median", 
-        "Impute Zero",
-        "Convert to Numeric",
-        "Get Dummies"
-    ])
 
-# Copy of df in order to preserve the original data
-df_clean = st.session_state.df_clean
+    # Output
+    st.subheader("Model Visualization(s)")
 
-# Apply modifications
-if method == "Original DF":
-    st.session_state.df_clean = st.session_state.df_clean = df.copy()
-elif method == "Drop Rows":
-    # Remove all rows that contain any missing values.
-    st.session_state.df_clean = st.session_state.df_clean.dropna()
-elif method == "Drop Columns (>50% Missing)":
-    # Drop columns where more than 50% of the values are missing.
-    st.session_state.df_clean = st.session_state.df_clean.drop(columns=df_clean.columns[df_clean.isnull().mean() > 0.5])
-elif method == "Impute Mean":
-    # Replace missing values in the selected column with the column's mean.
-    st.session_state.df_clean[column] = st.session_state.df_clean[column].fillna(df[column].mean())
-elif method == "Impute Median":
-    # Replace missing values in the selected column with the column's median.
-    st.session_state.df_clean[column] = st.session_state.df_clean[column].fillna(df[column].median())
-elif method == "Impute Zero":
-    # Replace missing values in the selected column with zero.
-    st.session_state.df_clean[column] = st.session_state.df_clean[column].fillna(0)
-elif method == "Convert to Numeric":
-    bool_true = True
-    bool_false = False
-    st.session_state.df_clean[column] = st.session_state.df_clean[column].map({bool_true:1, bool_false:0})
-elif method == "Get Dummies":
-    st.session_state.df_clean = pd.get_dummies(st.session_state.df_clean, columns=[column], drop_first=True)
-    
-# ---------------
-# Model Selection
-# ---------------
+    col2a, col2b = st.columns([1,1])
 
-with col2:
-    st.subheader(":four: Select Your ML Models and Target")
-    ml_1 = st.selectbox('Left Model', ['Linear Regression', 'Logistic Regression', 'Decision Tree', 'K-Nearest Neighbors', 'Dimensionality Reduction'])
-    ml_2 = st.selectbox('Right Model', ['Linear Regression', 'Logistic Regression', 'Decision Tree', 'K-Nearest Neighbors', 'Dimensionality Reduction'])
-    target_var = st.selectbox('Target Variable', st.session_state.df_clean.columns)
-    target_var_df = target_var
-    
+    with col2a:
 
-# -----------------
-# Dataframe Viewing
-# -----------------
+        if model_type == "Classification":
+            # Confusion matrix
+            st.write("Confusion Matrix:")
+            cm = confusion_matrix(y_test, y_pred)
+            fig, ax = plt.subplots()
+            sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", ax=ax)
+            st.pyplot(fig)
+        else:
+            # Plot actual vs predicted
+            fig3, ax3 = plt.subplots()
+            ax3.scatter(y_test, y_pred)
+            ax3.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'k--', lw=2)
+            ax3.set_xlabel("Actual")
+            ax3.set_ylabel("Predicted")
+            ax3.set_title("Actual vs Predicted")
+            st.pyplot(fig3)
 
-# Allows users to view their chosen dataframe before 
-# applying machine learning models, which may help them 
-# decide whether pre-processing is needed and select a 
-# model based on its applicability to the dataset
+    with col2b:
+        if model_type == 'Classification':
+            # ROC curve (if binary classification)
+            if hasattr(model, "predict_proba") and len(np.unique(y)) == 2:
+                y_prob = model.predict_proba(X_test)[:, 1]
+                fpr, tpr, _ = roc_curve(y_test, y_prob)
+                auc = roc_auc_score(y_test, y_prob)
+                st.write(f"**ROC AUC Score:** {auc:.2f}")
+                fig2, ax2 = plt.subplots()
+                ax2.plot(fpr, tpr, label=f"AUC = {auc:.2f}")
+                ax2.plot([0, 1], [0, 1], linestyle='--')
+                ax2.set_xlabel("False Positive Rate")
+                ax2.set_ylabel("True Positive Rate")
+                ax2.set_title("ROC Curve")
+                ax2.legend()
+                st.pyplot(fig2)
+        else:
+            pass
 
-with col3:
-    st.subheader("Selected Dataframe View:")
-    st.markdown(""":exclamation: Note: Dropping feature variables in step 2 will affect both the original dataset 
-                and the modified dataset, but any modifications made in step 3 will not affect the
-                original dataset.""")
-    df_view = st.selectbox('Choose view', ['Original Dataframe', 'Cleaned Dataframe'])
-    if df_view == 'Original Dataframe':
-        st.dataframe(df)
+with col1:
+    st.subheader("Model Performance Metrics")
+
+    if model_type == "Classification":
+        st.write(f"**Accuracy:** {accuracy_score(y_test, y_pred):.2f}")
+        class_report = classification_report(y_test, y_pred, output_dict=True)
+        precision = class_report['weighted avg']['precision']
+        recall = class_report['weighted avg']['recall']
+        f1_score = class_report['weighted avg']['f1-score']
+        st.write("**Classification Report (Weighted):**")
+        st.write(f'**Precision:** {precision:.2f}')
+        st.write(f'**Recall (Sensitivity):** {recall:.2f}')
+        st.write(f'**F1-Score:** {f1_score:.2f}')
     else:
-        st.dataframe(st.session_state.df_clean)
+        mse = mean_squared_error(y_test, y_pred)
+        r2 = r2_score(y_test, y_pred)
+        rmse = np.sqrt(mse)
+        st.write(f"**Mean Squared Error (MSE):** {mse:.2f}")
+        st.write(f"**Root Mean Squared Error (RMSE):** {rmse:.2f}")
+        st.write(f"**R² Score:** {r2:.2f}")
 
+    if model_name == 'Linear Regression':
+        st.info("Interpretation: In general, your model should aim for low MSE and RMSE scores, R² scores closer to 1.")
+    else:
+        st.info("Interpretation: In general, your model should aim for higher accuracy and F1-score (as a percent). You may prefer a higher precision when the cost of false positives is high, and a higher recall when the cost of a false negative is high.")
 
-
-# ------------------
-# ML Modeling - Left
-# ------------------
-
-# Splitting the selected target variable from the feature variables
-if target_var in feature_vars:
-    feature_vars.remove(target_var)
-
-if ml_1 == 'Logistic Regression':
-    X = st.session_state.df_clean[feature_vars]
-    y = df[target_var]
-    # Split dataset into training and testing subsets
-    X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                                        test_size = .2,
-                                                        random_state = 42)
-    # Initialize and train logistic regression model
-    model = LogisticRegression()
-    model.fit(X_train, y_train)
-    # Predict on test data
-    y_pred = model.predict(X_test)
-    # Calculate accuracy
-    accuracy = accuracy_score(y_test, y_pred)
-    accuracy
-    # Generate confusion matrix
-    cm = confusion_matrix(y_test, y_pred)
-    sns.heatmap(cm, annot = True, cmap = "Blues")
-    plt.title("Confusion Matrix")
-    plt.xlabel("Predicted")
-    plt.ylabel("Actual")
-    plt.show() # graph shows a slight bias toward predicting non-survival
-    # Display classification report
-    st.write(classification_report(y_test, y_pred))
-    # Extract coefficients and intercept
-    coef = pd.Series(model.coef_[0], index = feature_vars)
-    intercept = model.intercept_[0]
-    # Display coefficients
-    st.write(coef)
-    st.write(intercept)
-    # a coefficient of 0 is a 50/50 chance
-
-# -----------------
-# ML Model Displays
-# -----------------
-
-col1_2, col2_2 = st.columns(2)
-
-with col1_2:
-    st.subheader(ml_1)
-
-with col2_2:
-    st.subheader(ml_2)
