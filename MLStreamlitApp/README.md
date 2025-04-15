@@ -85,3 +85,4 @@ Plus assistance from these other resources I recommend:
 * [W3 Schools](https://www.w3schools.com)
 
 ## Screenshots
+![image](sample_screenshot.png)

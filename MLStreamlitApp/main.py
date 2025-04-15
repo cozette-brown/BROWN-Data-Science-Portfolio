@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import (
     accuracy_score, classification_report, confusion_matrix,
     roc_auc_score, roc_curve, mean_squared_error, r2_score,
@@ -222,5 +222,5 @@ with col1:
     if model_name == 'Linear Regression':
         st.info("Interpretation: In general, your model should aim for low MSE and RMSE scores, R² scores closer to 1.")
     else:
-        st.info("Interpretation: In general, your model should aim for higher accuracy and F1-score (as a percent). You may prefer a higher precision when the cost of false positives is high, and a higher recall when the cost of a false negative is high.")
+        st.info("Interpretation: In general, your model should aim for higher accuracy and F1-score (as a percent). You may prefer a higher precision when the cost of false positives is high, and a higher recall when the cost of a false negative is high. An ROC AUC Score further from 0.5 is best.")
 
