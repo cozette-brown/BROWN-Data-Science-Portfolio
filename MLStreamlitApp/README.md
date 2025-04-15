@@ -57,9 +57,10 @@ This project is part of a portfolio released under the MIT License. See the port
 ## References
 
 I created this project with help from the following sources:
-* Leung, K. (2023). "Micro, Macro & Weighted Averaged of F1 Score, Clearly Explained."
-* Serrano, L.G. (2021). *Grokking Machine Learning,* Manning Publications Co.
 * Lectures and .ipynb files from Professor David Smiley, University of Notre Dame
+* Leung, K. (2023). "Micro, Macro & Weighted Averaged of F1 Score, Clearly Explained."
+* [Scikit-learn LabelEncoder documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html)
+* Serrano, L.G. (2021). *Grokking Machine Learning,* Manning Publications Co.
 
 Plus assistance from these other resources I recommend:
 * [Geeks for Geeks](https://geeksforgeeks.org)
