@@ -15,6 +15,7 @@ st.markdown("Thank you for using Unsoupervised, an unsupervised machine learning
 # OVERVIEW OF UPSUPERVISED LEARNING
 # ---------------------------------
 
+st.write("   ")
 st.subheader("Overview of Unsupervised Learning")
 st.markdown("""
     Unsupervised Machine Learning uses unlabeled data (data with only features) in order to identify structures, discover patterns, group similar observations, and/or reduce dimensionality in the dataset.
@@ -23,52 +24,63 @@ st.markdown("""
     * **Dimensionality Reduction:** Simplifies high-dimensional data (data with lots of features) into fewer features. Good for visualization or for removing largely unneccesary features.
     * **Clustering:** Grouping data points into clusters of similar observations""")
 
-# -----------------------
-# AVAILABLE ML ALGORITHMS
-# -----------------------
+# ------------
+# DATA SOURCES
+# ------------
 
-st.subheader("Available ML Algorithms")
-st.markdown("""\n This application makes three different algorithms available:
-    \n **Dimensionality Reduction**
-    1. Principal Component Analysis (PCA)
-    \n **Clustering**
-    \n 2. KMeans Clustering
-    \n 3. Hierarchical Clustering
-    \n You can learn more about each algorithm below.
+st.write("   ")
+st.subheader("Data")
+st.markdown("""
+This project uses the following datasets from Kaggle:
+* Country-data.csv [learn more [here](https://www.kaggle.com/datasets/rohan0301/unsupervised-learning-on-country-data?resource=download)]
+* Wholesale Customers Data [learn more [here](https://www.kaggle.com/code/farhanmd29/unsupervised-learning/input)]
+
+This project also uses the following sample dataset from sklearn.datasets:
+* Breast Cancer Wisconsin [learn more [here]]
+
+Learn more about the dataset [here](https://scikit-learn.org/stable/api/sklearn.datasets.html) on the Scikit Learn API Reference.
+
+Information about the datasets is also available in-app. To view information about each demo dataset, select the dataset in the left sidebar, then under "Dataset Preview" hit the 'ℹ️ Info' tab.
 """)
 
-# Tab Layout Configuration
-tab_titles = ['Principal Component Analysis (PCA)', 'KMeans Clustering', 'Hierarchical Clustering']
-tabs = st.tabs(tab_titles)
+# -------
+# LICENSE
+# -------
 
-# Tab 0: Principal Component Analysis (PCA)
-with tabs[0]:
-    st.subheader("Principal Component Analysis (PCA)")
+st.write("   ")
+st.subheader("License")
+st.markdown("""This project is part of a portfolio released under the MIT License. See the portfolio license file **[here](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/blob/d7c128186047d453de9f2491894e4fd0fa3da77d/LICENSE.md)** for details.""")
 
-# Tab 1: KMeans Clustering
-with tabs[1]:
-    st.markdown("<h2 style='text-align:center; 'Principal Component Analysis (PCA)</h2>", unsafe_allow_html=True)
-    st.markdown("""
-    """)
+# ----------------
+# ACKNOWLEDGEMENTS
+# ----------------
 
-# Tab 2: Hierarchical Clustering
-with tabs[2]:
-    st.subheader("Hierarchical Clustering")
+st.write("   ")
+st.subheader("Acknowledgements")
+st.markdown("""
+This project was created with help from the following sources:
+* Lectures and .ipynb files from Professor David Smiley, University of Notre Dame
+* Saini, A. (2021). ["How to make a great Streamlit app: Part II"](https://blog.streamlit.io/designing-streamlit-apps-for-the-user-part-ii/)
 
-# -------------------
-# DATASET INFORMATION
-# -------------------
+Plus assistance from these other resources I recommend:
+* [Geeks for Geeks](https://geeksforgeeks.org)
+* [W3 Schools](https://www.w3schools.com)
+* [Streamlit API cheat sheet](https://docs.streamlit.io/develop/quick-reference/cheat-sheet)
+* [Streamlit cheat sheet (Streamlit App)](https://cheat-sheet.streamlit.app/)
+* [Streamlit Emoji Shortcodes](https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
 
-# -----------
-# SOURCE CODE
-# -----------
+Plus a plethora of resources via documentation from:
+* Streamlit
+* scikit-learn
 
-# Creator
+Special thanks to @baselhusam on GitHub, and his app ClickML available on [GitHub](https://github.com/baselhusam/ClickML/tree/main) and [Streamlit Community Cloud](https://clickml.streamlit.app/?ref=streamlit-io-gallery-other). The design and code of his application informed the making of this machine learning app.
+""")
 
-# REFERENCES
-"""
-tab_variable_name = st.tabs(['tab names'])
+# ------
+# CREDIT
+# ------
 
-with tab_variable_name[0]:
-with tab_variable_name[1]:
-"""
+st.write("   ")
+with st.container(border=True):
+    st.subheader("Credit")
+    st.markdown("""Unsoupervised was created by Cozette Brown, a data science student at the University of Notre Dame. View her data science portfolio and learn more at [github.com/cozette-brown](https://github.com/cozette-brown)""")
