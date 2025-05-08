@@ -7,8 +7,9 @@ import streamlit as st
 # Wide Page Layout
 st.set_page_config(layout="wide")
 
-# Page Title
-st.markdown("<h1 align='center'> About", unsafe_allow_html=True)
+# Page Header
+st.title("About")
+st.markdown("Thank you for using Unsoupervised, an unsupervised machine learning application. ")
 
 # ---------------------------------
 # OVERVIEW OF UPSUPERVISED LEARNING
@@ -16,7 +17,7 @@ st.markdown("<h1 align='center'> About", unsafe_allow_html=True)
 
 st.subheader("Overview of Unsupervised Learning")
 st.markdown("""
-    Unsupervised Machine Learning uses unlabeled data—data with only features—in order to identify structures, discover patterns, group similar observations, and/or reduce dimensionality in the dataset.
+    Unsupervised Machine Learning uses unlabeled data (data with only features) in order to identify structures, discover patterns, group similar observations, and/or reduce dimensionality in the dataset.
     It is best for exploration, rather than prediction. Supervised Machine Learning is better suited for tasks where the goal is to make predictions for a target variable.
     Types of Unsupervised ML:
     * **Dimensionality Reduction:** Simplifies high-dimensional data (data with lots of features) into fewer features. Good for visualization or for removing largely unneccesary features.
@@ -53,3 +54,21 @@ with tabs[1]:
 # Tab 2: Hierarchical Clustering
 with tabs[2]:
     st.subheader("Hierarchical Clustering")
+
+# -------------------
+# DATASET INFORMATION
+# -------------------
+
+# -----------
+# SOURCE CODE
+# -----------
+
+# Creator
+
+# REFERENCES
+"""
+tab_variable_name = st.tabs(['tab names'])
+
+with tab_variable_name[0]:
+with tab_variable_name[1]:
+"""
