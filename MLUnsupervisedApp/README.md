@@ -70,6 +70,8 @@ Plus assistance from these other resources I recommend:
 * [Streamlit API cheat sheet](https://docs.streamlit.io/develop/quick-reference/cheat-sheet)
 * [Streamlit cheat sheet (Streamlit App)](https://cheat-sheet.streamlit.app/)
 * [Streamlit Emoji Shortcodes](https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/)
+* Streamlit documentation
+* scikit-learn documentation
 
 Special thanks to @baselhusam on GitHub, and his app ClickML available on [GitHub](https://github.com/baselhusam/ClickML/tree/main) and [Streamlit Community Cloud](https://clickml.streamlit.app/?ref=streamlit-io-gallery-other). I consulted much of his code and design for the making of my own machine learning app.
 
