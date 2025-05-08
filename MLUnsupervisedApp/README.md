@@ -16,8 +16,6 @@ My end objective is to give users the ability to quickly train unsupervised mach
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 - [Screenshots](#screenshots)
-  
-## FIX EVERYTHING BELOW THIS LINE 
 
 ## **Installation**
 
