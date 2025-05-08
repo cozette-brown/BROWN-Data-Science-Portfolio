@@ -21,7 +21,7 @@ My end objective is to give users the ability to quickly train machine learning 
 ## **Installation**
 
 **Requirements:** <br>
-This project is available on the Streamlit Community Cloud at [[[cozettebrown-machine-learning-app.streamlit.app](https://cozettebrown-machine-learning-app.streamlit.app)](https://cozettebrown-machine-learning-app.streamlit.app/)](cozettebrown-machine-learning-app.streamlit.io)
+This project is available on the Streamlit Community Cloud at [cozettebrown-machine-learning-app.streamlit.app](https://cozettebrown-machine-learning-app.streamlit.app).
 
 To install **MLStreamlitApp**, follow these steps:
 1. Clone the repository: **`git clone https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/MLStreamlitApp.git`**
