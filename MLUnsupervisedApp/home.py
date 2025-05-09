@@ -55,10 +55,10 @@ with st.sidebar:
  
     # Loads 'Country-data.csv'
     if dataset == 'Country Data': 
-        data = pd.read_csv("data/Country-data.csv")
+        data = pd.read_csv(country_data_path)
     # Loads 'Wholesale-customers-data.csv'
     elif dataset == 'Customer Data':
-        data = pd.read_csv("data/Wholesale-customers-data.csv")
+        data = pd.read_csv(customer_data_path)
     elif dataset == 'Breast Cancer Data':
         breast_cancer = load_breast_cancer()
         data = pd.DataFrame(breast_cancer.data, columns=breast_cancer.feature_names)
