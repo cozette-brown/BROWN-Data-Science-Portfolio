@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -44,10 +45,10 @@ with st.container(border=True):
 # --------------------------
 
 # Build file paths for demo datasets
-base_dir = os.getcwd()  # Get the current working directory
-country_data_path = os.path.join(base_dir, "data", "Country-data.csv")
-customer_data_path = os.path.join(base_dir, "data", "Wholesale-customers-data.csv")
-    
+base_dir = Path(__file__).resolve().parent  # Path to the directory where the script is located
+country_data_path = base_dir / "data" / "Country-data.csv"
+customer_data_path = base_dir / "data" / "Wholesale-customers-data.csv"
+
 # Selection UI
 with st.sidebar:
     st.subheader("1. Upload or Select a Dataset")
