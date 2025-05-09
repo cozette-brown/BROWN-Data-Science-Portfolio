@@ -8,7 +8,6 @@ This basic Streamlit app reads data from a CSV file that contains facts about ev
 - [Data](#data)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
-- [Screenshots](#screenshots)
 
 ## Installation
 To install **MLUnsupervisedApp**, follow these steps:
@@ -29,6 +28,6 @@ The CSV file used for this project comes from andrewblock on GitHub. You can fin
 
 This project is part of a portfolio released under the MIT License. See the portfolio license file **[here](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/blob/d7c128186047d453de9f2491894e4fd0fa3da77d/LICENSE.md)** for details.
 
-## Acknowledgments
+## Acknowledgements
 
 I created this project with help from lectures by Professor David Smiley, University of Notre Dame.
