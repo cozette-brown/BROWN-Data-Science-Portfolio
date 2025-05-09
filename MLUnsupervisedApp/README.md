@@ -83,3 +83,11 @@ Plus a plethora of resources via documentation from:
 Special thanks to @baselhusam on GitHub, and his app ClickML available on [GitHub](https://github.com/baselhusam/ClickML/tree/main) and [Streamlit Community Cloud](https://clickml.streamlit.app/?ref=streamlit-io-gallery-other). I consulted much of his code and design for the making of my own machine learning app.
 
 ## Screenshots
+*Interface when you open the app:*
+
+<img src="asset/1.png" width="700"/>
+
+*A few sidebar settings and visualizations for hierarchical clustering:*
+
+<img src="asset/2.png" width="700"/>
+
