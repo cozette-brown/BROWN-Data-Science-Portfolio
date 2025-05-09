@@ -2,7 +2,7 @@
 import os
 from pathlib import Path
 
-# Read in .toml file
+# Read in .toml file - hasn't been working but not essential for app functioning.
 config_dir = Path(__file__).resolve().parent / ".streamlit"
 config_path = config_dir / "config.toml"
 
