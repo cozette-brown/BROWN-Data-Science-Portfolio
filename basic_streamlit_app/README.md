@@ -2,17 +2,33 @@
 
 This basic Streamlit app reads data from a CSV file that contains facts about every movie in the James Bond franchise. It uses interactive double-slider and multiselect widgets in order to display a filtered view of a dataframe created from the CSV file. 
 
-### Instructions for Running Streamlit:
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Data](#data)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Screenshots](#screenshots)
 
-1) With basic_streamlit_app downloaded and open in VS Code, open your terminal (if you are not already in basic_streamlit_app, use "ls" and "cd" commands to navigate to it from within your terminal).
-2) Type "ls" in your terminal. You should now see REAME.md, data, and main.py listed inside your terminal.
-3) Type "streamlit run main.py" to run the app.
-4) BONUS: In order to see the app from within VS Code, copy the Streamlit localhost URL, click the search bar at top of window -> hit "Show and Run Commands" -> hit "Simple Browser: Show" -> paste copied URL and hit enter/return.
+## Installation
+To install **MLUnsupervisedApp**, follow these steps:
+1. Clone the repository: **`git clone https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/basic_streamlit_app.git`**
+2. Navigate to the project directory: **`cd basic_streamlit_app`**
+3. Run the project: **`streamlit run main.py`**
+   
+## Usage
 
-***Example Path:***
+1. **Run the Streamlit App:** Navigate to the MLUnsupervisedApp directory and run the project with **`streamlit run main.py`
+2. **Adjust Filters:** Adjust filter options and watch results appear in the filtered dataframe
 
-BROWN-Data-Science-Portfolio open in VS Code -> type "ls" and hit return then "cd basic_streamlit_app" and hit return in terminal -> type "ls" and hit return then "streamlit run main.py" and hit return -> copy URL in terminal -> click search bar where it says "BROWN-Data-Science-Portfolio" -> click "Show and Run Commands" -> click "Simple Browser: Show" -> paste copied URL and hit return -> open split screen to see code side-by-side with Streamlit display<br><br>
-
-### Credit: ###
+## Data
 
 The CSV file used for this project comes from andrewblock on GitHub. You can find it [here](https://github.com/andrew-block/jamesbond/blob/master/data/data.csv), available for use under the MIT License as seen [here](https://github.com/andrew-block/jamesbond/blob/master/LICENSE). Formatting modified from the original.
+
+## License
+
+This project is part of a portfolio released under the MIT License. See the portfolio license file **[here](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/blob/d7c128186047d453de9f2491894e4fd0fa3da77d/LICENSE.md)** for details.
+
+## Acknowledgments
+
+I created this project with help from lectures by Professor David Smiley, University of Notre Dame.
