@@ -4,7 +4,7 @@ from pathlib import Path
 
 # Read in .toml file
 config_dir = Path(__file__).resolve().parent / ".streamlit"
-os.environ["STREAMLIT_CONFIG_DIR"] = str(config_dir)
+config_path = config_dir / "config.toml"
 
 # Import libraries
 import pandas as pd
