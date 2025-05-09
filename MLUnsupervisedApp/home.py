@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -18,7 +19,7 @@ from scipy.cluster.hierarchy import linkage, dendrogram
 st.set_page_config(layout="wide")
 
 # Display Logo and Title 
-st.image("asset/logo.png")
+st.image(os.path.join(os.getcwd(), "asset/logo.png"))
 
 st.markdown("""
 **Unsoupervised** allows you to apply unsupervised machine learning models to either an uploaded or selected sample dataset.
