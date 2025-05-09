@@ -23,7 +23,7 @@ st.image("assets/logo.png")
 st.markdown("""
 **Unsoupervised** allows you to apply unsupervised machine learning models to either an uploaded or selected sample dataset.
 Once you've chosen and previewed your dataset, you can select from either the Principal Component Analysis (PCA),
-KMeans Clustering, or Hierarchical Clustering model and begin exploratory data analysis. This app is equipped with the ability to
+KMeans Clustering, or Hierarchical Clustering models and begin exploratory data analysis. This app is equipped with the ability to
 adjust hyperparameters and observe their effects on essential model performance metrics using complete dataframes and clear visualizations. """, unsafe_allow_html=True)
 
 # Invisible Divider
@@ -34,9 +34,7 @@ st.write("   ")
 with st.container(border=True):
     st.subheader("Quick Start Instructions")
     st.markdown("""This application works best in fullscreen desktop view. With the left sidebar **open,** follow the steps to upload a dataset and begin machine learning! As you adjust your settings in the sidebar, you'll see changes to the main body of the app. Scroll down on this section to preview your dataset and view metrics and visualizations for your selected model.""")
-    st.markdown(""":bulb: **Tip:** Need help choosing an algorithm and interpreting the results? Click the "About" page (accessible via the left sidebar) to view more information about unsupervised machine learning! There will also be helpful hints along the way wherever you see an ":information_source: Info" tab""")
-
-col1, col2 = st.columns([1,3])
+    st.markdown(""":bulb: **Tip:** Click the "About" page (accessible via the left sidebar) to view a brief overview of unsupervised machine learning. Or, for more in-depth information, there will also be helpful hints provided wherever you see an ":information_source: Info" tab""")
 
 # --------------------------
 # UPLOAD OR SELECT A DATASET
@@ -62,7 +60,7 @@ with st.sidebar:
         uploaded_file = st.file_uploader("Upload a valid .csv file.", type=["csv"])
         # Load
         data = pd.read_csv(uploaded_file)
-    # Warning if nothing loaded correctly
+    # Warning if nothing loaded correctly (probably won't appear but added just in case)
     else:
         st.warning("Please upload a dataset or use the sample dataset to proceed.")
         st.stop()
@@ -80,11 +78,13 @@ st.subheader(f"Dataset Preview: {dataset}")
 
 # Configure Tab Layout
 dataset_preview_tabs = st.tabs(['🗃 Dataset', 'ℹ️ Info'])
-
 with dataset_preview_tabs[0]:
+    # Display Dataframe
     st.dataframe(data)
 with dataset_preview_tabs[1]:
     with st.container(border=True):
+        # Display information about demo datasets, OR display a warning about uploaded dataset
+        # Country Dataset
         if dataset == 'Country Data':
             st.subheader('About the Dataset')
             st.markdown("""
@@ -103,6 +103,7 @@ with dataset_preview_tabs[1]:
 
             *'Country-data.csv' was accessed via Kaggle at [this link](https://www.kaggle.com/datasets/rohan0301/unsupervised-learning-on-country-data?resource=download). It has been used in this application for demonstration purposes only.*
             """)
+        # Customer Dataset
         elif dataset == 'Customer Data':
             st.subheader('About the Dataset')
             st.markdown("""
@@ -119,6 +120,7 @@ with dataset_preview_tabs[1]:
 
             *'Wholesale customers data.csv' was accessed via Kaggle at [this link](https://www.kaggle.com/datasets/binovi/wholesale-customers-data-set). It has been used in this application for demonstration purposes only.*
             """)
+        # Breast Cancer Dataset
         elif dataset == 'Breast Cancer Data':
             st.subheader('About the Dataset')
             st.markdown("""
@@ -137,6 +139,7 @@ with dataset_preview_tabs[1]:
 
             *The dataset was accessed using load_breast_cancer() via sklearn. It has been used in this application for demonstration purposes only.*
             """)
+        # Uploaded Dataset
         else:
             st.subheader('Note on Uploaded Datasets')
             st.markdown("""You must prepare the dataset for use in appropriate machine learning models prior to uploading. Otherwise, you may encounter errors when using the application\'s machine learning algorithms.""")
@@ -155,14 +158,16 @@ with st.sidebar:
 st.write("   ")
 st.write("   ")
 
-# Display Selected Model and Information
+# Display Selected Model Type
 st.subheader(f"{selected_model}")
 st.markdown(":bulb: **Tip:** You may change your machine learning algorithm in the sidebar to the left.")
 
 # Tab Configuration
 model_and_info = st.tabs(['📊 Model Performance', 'ℹ️ Info'])
 
+# Display preview of metrics and visualizations for various models
 with model_and_info[0]:
+    # PCA
     if selected_model == 'Principal Component Analysis (PCA)':
         st.markdown("""
         Keep scrolling to see:
@@ -172,6 +177,7 @@ with model_and_info[0]:
         * Bar Plot
         * Screen & Bar Plots Combined
         """)
+    # KMeans Clustering
     elif selected_model == 'KMeans Clustering':
         st.markdown("""
         Keep scrolling to see:
@@ -179,6 +185,7 @@ with model_and_info[0]:
         * Silhouette Scores for Optimal k
         * 2D Clustering Results *(Note: PCA must be enabled)*
         """)
+    # Hierarchical Clustering
     else:
         st.markdown("""
         Keep scrolling to see:
@@ -188,7 +195,9 @@ with model_and_info[0]:
         * 2D Clustering Results *(Note: PCA must be enabled)*
         """)
 with model_and_info[1]:
+    # Display Info about each algorithm type
     with st.container(border=True):
+        # PCA
         if selected_model == 'Principal Component Analysis (PCA)':
             # About PCA
             st.subheader("About Principal Component Analysis (PCA)")
@@ -200,9 +209,9 @@ with model_and_info[1]:
             * Enhanced data visualizations
             * Better model performance
 
-            PCA is also an excellent tool for creating visualizations (2D scatterplots) alongside other unsupervised or supervised algorithms. Within this app, you can explore your dataset using PCA alone or use it alongside unsupervised clustering methods. 
+            PCA is also an excellent tool for creating visualizations (2D scatterplots) alongside other algorithms. Within this app, you can explore your dataset using PCA alone or use it alongside unsupervised clustering methods. 
 
-            :bulb: **Tip:** You selected "Principal Component Analysis (PCA)" for your machine learning algorithm, but you can use it with other algorithms as well. Simply hit "Enable PCA" *after* selecting KMeans Clustering or Hierarchical Clustering to begin.
+            :bulb: **Tip:** You selected "Principal Component Analysis (PCA)" for your machine learning algorithm, but you can use it with other algorithms as well. Simply open the left sidebar and hit "Enable PCA" *after* selecting KMeans Clustering or Hierarchical Clustering to begin.
             """)
             
             # Adjustable Settings
@@ -211,7 +220,7 @@ with model_and_info[1]:
             st.subheader("Adjustable Settings")
             st.markdown("""
             Unsoupervised allows you to adjust the following setting for your PCA model:
-            \n* **Desired Number of Components:** Adjust the number of Principal Components, with a minimum of 2 and a maximum of the original number of Principal Components
+            \n* **Desired Number of Components:** Adjust the number of Principal Components, with a minimum of 2 and a maximum of the original number of components
             \n:bulb: **Tip:** Adjustable settings can be found in the sidebar to the left.
             """)
             
@@ -228,6 +237,7 @@ with model_and_info[1]:
             * **Scree & Bar Plots Combined:** Overlays the scree plot and bar plot for comparative purposes, so you may balance the scree plot with the bar plot to make a decision about how many Principal Components are needed
             """)
         
+        # KMeans Clustering
         elif selected_model == 'KMeans Clustering':
 
             # About KMeans Clustering
@@ -246,7 +256,7 @@ with model_and_info[1]:
             st.write("   ")
             st.subheader("Adjustable Settings")
             st.markdown("""
-            Unsoupervised allows you to adjust the following setting for your KMeans Clustering model:
+            Unsoupervised allows you to adjust the following settings for your KMeans Clustering model:
             \n* **Desired Number of Clusters:** Adjust the number of clusters, with a minimum of 2 and a maximum of 10
             \n* **Enable PCA for Visualization:** Enable Principal Component Analysis, so that you can display a 2D scatterplot of your clustered dataset 
             \n:bulb: **Tip:** Adjustable settings can be found in the sidebar to the left.
@@ -263,6 +273,7 @@ with model_and_info[1]:
             * **2D Clustering Results:** When PCA is enabled, sorts dataset observations into your selected number of clusters on a color-coded 2D scatter plot, in order to visualize the results of your clustering model
             """)
 
+        # Hierarchical Clustering
         else:
             # About Hierarchical Clustering
             st.subheader("About Hierarchical Clustering")
@@ -280,8 +291,8 @@ with model_and_info[1]:
             st.write("   ")
             st.subheader("Adjustable Settings")
             st.markdown("""
-            Unsoupervised allows you to adjust the following setting for your Hierarchical Clustering model:
-            \n* **Label Column:** Select the appropriate column with which to label your observations, and use the rest of the numeric columns as features
+            Unsoupervised allows you to adjust the following settings for your Hierarchical Clustering model:
+            \n* **ID Column:** Select the appropriate column with which to label individual observations, and use the rest of the numeric columns as features
             \n* **Truncate Results:** Toggle to display either all observations or a truncated version on the dendrogram
             \n* **Select k:** Select k clusters after viewing your dendrogram
             \n* **Enable PCA for Visualization:** Enable Principal Component Analysis, so that you can display a 2D scatterplot of your clustered dataset 
@@ -295,7 +306,7 @@ with model_and_info[1]:
             st.markdown("""
             Unsoupervised includes the following metrics and visualizations:
             * **Hierarachical Tree:** Displays hierarchical clustering process on a dendrogram
-            * **Assigned Clusters:** A dataframe showing each observation (by its user-selected label) and its assigned cluster
+            * **Assigned Clusters:** A dataframe showing each observation and its assigned cluster
             * **Silhouette Analysis:** Plots the average Silhouette Score for each possible model of 2-10 clusters, which may help you decide the most optimal number of clusters. Look for the highest silhouette score to find the most optimal number of clusters
             * **2D Clustering Results:** When PCA is enabled, sorts dataset observations into your selected number of clusters on a color-coded 2D scatter plot, in order to visualize the results of your clustering model
             """)
@@ -310,16 +321,16 @@ if selected_model == 'Principal Component Analysis (PCA)':
     # PREPROCESS DATA FOR PCA
     # -----------------------
 
-    # Grabs numeric data from dataset
+    # Grab numeric data from dataset
     numeric_df = data.select_dtypes(include=['number'])
     
-    # Scales the Data
+    # Scale the Data
     scaler = StandardScaler()
     X_std = scaler.fit_transform(numeric_df)
 
     # Select Number of Components
     with st.sidebar:
-        # Displays Selected Model Type
+        # Display Selected Model Type
         st.subheader("3. Enter the Desired Number of Components")
         component_max = len(numeric_df.columns)
         components = st.number_input("Enter an integer value number of components", 2, component_max)
@@ -339,7 +350,7 @@ if selected_model == 'Principal Component Analysis (PCA)':
     st.write("   ")
     st.write("   ")
 
-    # Column Layout
+    # Configure Column Layout
     varcol, scattercol = st.columns(2)
 
     # ----------------
@@ -361,14 +372,16 @@ if selected_model == 'Principal Component Analysis (PCA)':
                 'Cumulative Variance': cumulative_variance
                 })
 
+            # Configure tab layout
             variance_tabs = st.tabs(['🔎 View', 'ℹ️ Info'])
 
+            # Display formatted dataframe
             with variance_tabs[0]:
-                # Display formatted DataFrame in Streamlit
                 st.dataframe(variance_df)
                 st.markdown("""            
                 :bulb: **Tip:** To enlarge the dataframe for viewing, hover over the dataframe then hit the fullscreen button which appears in the dataframe's top right corner.
                 """)
+            # Display info about dataframe
             with variance_tabs[1]:
                 st.subheader("About the Dataframe")
                 st.markdown("""
@@ -388,9 +401,10 @@ if selected_model == 'Principal Component Analysis (PCA)':
         with st.container(border=True):
             st.subheader("Scatter Plot of PCA Scores")
     
-            # Scatter Plot of PCA Scores
+            # Configure tab layout
             pca_score_tabs = st.tabs(['🔎 View', 'ℹ️ Info'])
 
+            # Display Scatter Plot
             with pca_score_tabs[0]:
                 plt.figure(figsize=(8,6))
                 plt.scatter(
@@ -411,6 +425,7 @@ if selected_model == 'Principal Component Analysis (PCA)':
                 
                 *This scatter plot displays data for when there are two Principal Components. It will remain on screen even if you adjust the number of components to be above 2.*
                 """)
+            # Display info about Scatter Plot
             with pca_score_tabs[1]:
                 st.subheader("About the Plot")
                 st.markdown("""
@@ -457,7 +472,7 @@ if selected_model == 'Principal Component Analysis (PCA)':
                 ax1.grid(True)
                 st.pyplot(fig1)
 
-                # Setting explained and components variables
+                # Set explained and components variables
                 explained = pca_full.explained_variance_ratio_ * 100  # individual variance (%) per component
                 components = np.arange(1, len(explained) + 1)
                 
@@ -481,7 +496,7 @@ if selected_model == 'Principal Component Analysis (PCA)':
                 # DISPLAY COMBINED PLOTS
                 # ----------------------
 
-                # Setting cumulative variable
+                # Set cumulative variable
                 cumulative = np.cumsum(explained)
 
                 # Combined Plots
@@ -524,6 +539,7 @@ if selected_model == 'Principal Component Analysis (PCA)':
 
                 st.markdown(""":bulb: **Tip:** To enlarge the plots for viewing, hover over each plot then hit the fullscreen button which appears in the plot's top right corner.""")
 
+        # Display info about Scree, Bar, and Combined Plots
         with scree_bar_tabs[1]:
             # Describe Scree Plot
             st.subheader("About the Scree Plot")
@@ -535,7 +551,7 @@ if selected_model == 'Principal Component Analysis (PCA)':
             st.write("   ")
             st.markdown("""**Interpretation:**
             \n* Each point on the plot shows the variance captured by the number of retained components
-            \n* A scree plot helps determine how many components to retain when applying PCA. When plotted, it will display a curve. Look for the "elbow" in the curve, or the place where it noticeably bends and begins to level off, to decide what number of components is best for your dataset.
+            \n* A scree plot helps determine how many components to retain when applying PCA. When plotted, it will display a curve. Look for the "elbow" in the curve, or the place where it noticeably bends and begins to level off, to decide what number of components is best for your dataset
             """)
             # Describe Bar Plot
             st.write("   ")
@@ -554,7 +570,7 @@ if selected_model == 'Principal Component Analysis (PCA)':
             # Describe Combined
             st.write("   ")
             st.subheader("About the Combined Plots")
-            st.markdown("""The combined plot shows the scree plot and bar plot together, making it easier to compare results from both plots. It also displays percent variance captured by each component above each bar, so you can see individual variance explained as a percent. In this plot, there are two y-axes:
+            st.markdown("""The combined plot shows the scree plot and bar plot together, making it easier to compare results from both plots. It also displays percent variance captured by each component above each bar, so you can see individual variance expressed as a percent. In this plot, there are two y-axes:
             \n* **[left] Individual Variance Explained (%):** Variance captured by an individual component, as a percent
             \n* **[right] Cumulative Variance Explained (%):** Cumulative variance captured by the component and all previously retained components, as a percent""")
 
@@ -568,16 +584,16 @@ elif selected_model == 'KMeans Clustering':
     # PREPROCESS DATA FOR KMEANS CLUSTERING
     # -------------------------------------
 
-    # Grabs numeric data from dataset
+    # Grab numeric data from dataset
     numeric_df = data.select_dtypes(include=['number'])
     
-    # Scales the Data
+    # Scale the Data
     scaler = StandardScaler()
     X_std = scaler.fit_transform(numeric_df)
 
     # Select Number of Clusters
     with st.sidebar:
-        # Displays Selected Model Type
+        # Display Selected Model Type
         st.subheader("3. Enter the Desired Number of Clusters")
         cluster_max = 10
         k = st.number_input("Enter an integer value (Note: Maximum 10)", 2, cluster_max)
@@ -680,9 +696,8 @@ elif selected_model == 'KMeans Clustering':
     # PRINCIPAL COMPONENT ANALYSIS (FOR VISUALIZING CLUSTERS)
     # -------------------------------------------------------
 
-    # Enable Principal Component Analysis
+    # Enable/Disable Principal Component Analysis
     with st.sidebar:
-        # Enable/Disable PCA
         st.subheader("4. Enable Principal Component Analysis for Visualization?")
         pca_true = st.toggle("Enable PCA")
         with st.container(border=True):
@@ -702,6 +717,7 @@ elif selected_model == 'KMeans Clustering':
         st.subheader("2D Clustering Results")
         pca_projection_tabs = st.tabs(['🔎 View', 'ℹ️ Info'])
 
+        # Display Scatter Plot
         with pca_projection_tabs[0]:
             if pca_true == True:
                 fig7, ax7 = plt.subplots()
@@ -709,11 +725,11 @@ elif selected_model == 'KMeans Clustering':
                 colors = ['tomato', 'darkseagreen', 'cadetblue', 'goldenrod', 'plum',
                     'cornflowerblue', 'sandybrown', 'pink', 'seagreen', 'sienna']
 
-                # initializing for dynamic legend that responds to user inputted 'k'
+                # Initialize for dynamic legend that responds to user inputted 'k'
                 handles = []
                 labels = []
 
-                # Plotting each cluster
+                # Plot clusters
                 for cluster_label in range(k):
                     ax7.scatter(
                         X_pca[clusters == cluster_label, 0],
@@ -775,7 +791,7 @@ else:
     # Select label from dataframe
     with st.sidebar:
         # Selecting Label Column
-        st.subheader("3. Select Correct Label Column from Dataset")
+        st.subheader("3. Select Correct ID Column from Dataset")
         columns = data.columns.tolist()
         label = st.selectbox('Column Selection', columns)
 
@@ -784,12 +800,15 @@ else:
         st.markdown("<small>If disabled, all observations will be shown on the dendrogram. If enabled, a truncated version will be shown. Enable for readability. </small>", unsafe_allow_html=True)
         truncate_true = st.toggle("Truncate Results")
     
+    # Column configuration
     treecol, clustercol = st.columns([5,3])
 
     with treecol:
         with st.container(border=True):
             st.subheader("Hierarchical Tree")
             tree_tabs = st.tabs(['🔎 View', 'ℹ️ Info'])
+
+            # Display dendrogram
             with tree_tabs[0]:
                 # Define colors for tree
                 threshold = 10
@@ -824,11 +843,12 @@ else:
 
                 st.markdown(""":bulb: **Tip:** To enlarge the dendrogram for viewing, hover over the dendrogram then hit the fullscreen button which appears in the plot's top right corner.""")
 
+            # Display info about dendrogram
             with tree_tabs[1]:
                 st.subheader("About the Dendrogram")
                 st.markdown("""
                 The dendrogram displays the following information:
-                * **[x-axis] Selected label:** An identifier for each observation, as pulled from a user-selected column                     
+                * **[x-axis] Observation IDs:** Displays the ID of each observation using information from the column selected by a user in step 3 of the left sidebar. Can be truncated. Observations will be ordered according to clustering process             
                 * **[y-axis] Distance:** The distance, or dissimilarity, between clusters
                 
                 **Interpretation:**
@@ -840,19 +860,23 @@ else:
     # CHOOSE K & ASSIGN CLUSTERS
     # --------------------------
 
+    # Choose k
     with st.sidebar:
         st.subheader("5. Select k ")
         st.markdown("<small>:bulb: Tip: Select AFTER visually inspecting the dendrogram.</small>", unsafe_allow_html=True)
         k = st.number_input("Enter an integer value number for k", 2, 10)
-        
+
+    # Being Agglomerative clustering for Scatter Plot 
     agg = AgglomerativeClustering(n_clusters=k, linkage="ward")
     data["Cluster"] = agg.fit_predict(X_scaled)
 
+    # Display Assigned Clusters Dataframe
     with clustercol:
         with st.container(border=True):
             st.subheader("Assigned Clusters")
             cluster_tabs = st.tabs(['🔎 View', 'ℹ️ Info'])
 
+            # Display dataframe
             with cluster_tabs[0]:
                 clustered_df = data[[label, "Cluster"]]
                 st.dataframe(clustered_df)
@@ -860,7 +884,10 @@ else:
                 cluster_labels = data["Cluster"].to_numpy()
 
                 st.markdown(""":bulb: **Tip:** To enlarge the dataframe for viewing, hover over the dataframe then hit the fullscreen button which appears in the plot's top right corner.""")
+                st.write("   ")
+                st.markdown(""":bulb: **Tip:** Hit "Cluster" on the dataframe to sort results by cluster.""")
 
+            # Display information about dataframe
             with cluster_tabs[1]:
                 st.subheader("About the Dataframe")
                 st.markdown("""
@@ -873,14 +900,17 @@ else:
     # DISPLAYING OPTIMAL K W/ SILHOUETTE ELBOW
     # ----------------------------------------
 
+    # Column configuration
     silhouettecol, clusteringcol = st.columns(2)
 
+    # Elbow Plot
     with silhouettecol:
         with st.container(border=True):
             st.subheader("Silhouette Analysis")
 
             silanalysis_tabs = st.tabs(['🔎 View', 'ℹ️ Info'])
 
+            # Display Elbow Plot
             with silanalysis_tabs[0]:
                 k_range = range(2, 11)
                 sil_scores = []
@@ -905,7 +935,7 @@ else:
 
                 st.markdown(""":bulb: **Tip:** To enlarge the plot for viewing, hover over the plot then hit the fullscreen button which appears in the plot's top right corner.""")
 
-
+            # Display information about silhouette analysis plot
             with silanalysis_tabs[1]:
                 st.subheader("About the Silhouette Analysis Plot")
                 st.markdown("""
@@ -938,9 +968,9 @@ else:
         X_pca = pca.fit_transform(X_scaled)
 
 
-        # ----------------------------------------------------------------
-        # DISPLAY SCATTER PLOT OF CLUSTERING RESULTS (PCA MUST BE ENABLED)
-        # ----------------------------------------------------------------
+    # ----------------------------------------------------------------
+    # DISPLAY SCATTER PLOT OF CLUSTERING RESULTS (PCA MUST BE ENABLED)
+    # ----------------------------------------------------------------
 
     with clusteringcol:
         with st.container(border=True):
@@ -948,6 +978,7 @@ else:
 
             clustering_tabs = st.tabs(['🔎 View', 'ℹ️ Info'])
 
+            # Display Clustering Scatter Plot
             with clustering_tabs[0]:
                 if pca_true == True:
                 
@@ -957,7 +988,7 @@ else:
                     colors = ['tomato', 'darkseagreen', 'cadetblue', 'goldenrod', 'plum',
                             'cornflowerblue', 'sandybrown', 'pink', 'seagreen', 'sienna']
 
-                    # Plotting each cluster separately
+                    # Plot each cluster separately
                     for cluster_label in range(k):
                         ax10.scatter(
                             X_pca[cluster_labels == cluster_label, 0],  # X-axis data for the current cluster
@@ -985,6 +1016,7 @@ else:
                 else:
                     st.markdown(""":bulb: **Tip:** PCA must be enabled to display results. You may enable PCA in the left sidebar.""")
 
+            # Display information about Scatter Plot
             with clustering_tabs[1]:
                 st.subheader("About the Scatter Plot")
                 st.markdown("""
