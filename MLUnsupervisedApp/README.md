@@ -19,7 +19,7 @@ My end objective is to give users the ability to quickly train unsupervised mach
 
 ## **Installation**
   
-This project is available on the Streamlit Community Cloud at [unsoupervised.streamlit.app](https://unsoupervised.streamlit.app/) (make sure it runs on Pyton 3.11).
+This project is available on the Streamlit Community Cloud at [unsoupervised.streamlit.app](https://unsoupervised.streamlit.app/) (make sure it runs on Python 3.11).
 
 To install **MLUnsupervisedApp**, follow these steps:
 1. Clone the repository: **`git clone https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/MLUnsupervisedApp.git`**
