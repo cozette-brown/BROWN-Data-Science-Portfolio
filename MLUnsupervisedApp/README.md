@@ -9,7 +9,7 @@ This app includes the following machine learning models:
 
 My end objective is to give users the ability to quickly train unsupervised machine learning models and view important performance visualizations, all without having to write their own code.
 
-## Table of contents
+## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Data](#data)
