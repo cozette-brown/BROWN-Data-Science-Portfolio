@@ -43,11 +43,16 @@ with st.container(border=True):
 # UPLOAD OR SELECT A DATASET
 # --------------------------
 
+# Build file paths for demo datasets
+base_dir = os.getcwd()  # Get the current working directory
+country_data_path = os.path.join(base_dir, "data", "Country-data.csv")
+customer_data_path = os.path.join(base_dir, "data", "Wholesale-customers-data.csv")
+    
 # Selection UI
 with st.sidebar:
     st.subheader("1. Upload or Select a Dataset")
     dataset = st.selectbox('Dataset selection', ['Country Data', 'Customer Data', 'Breast Cancer Data', 'Upload Your Own'])
-
+ 
     # Loads 'Country-data.csv'
     if dataset == 'Country Data': 
         data = pd.read_csv("data/Country-data.csv")
