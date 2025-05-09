@@ -1,3 +1,5 @@
+# Cozette Brown's Data Science Portfolio
+
 ### Portfolio at a Glance:
 * **My First Streamlit App:** Provides a way to compare films in the James Bond franchise utilizing basic Streamlit functions.
 * **Tidy Data Project: Federal R&D Budget:** Applies principles of tidy data in order to analyze a budget dataset and produce meaningful visualizations from it.
