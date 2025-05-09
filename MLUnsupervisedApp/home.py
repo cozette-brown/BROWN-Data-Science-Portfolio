@@ -18,7 +18,7 @@ from scipy.cluster.hierarchy import linkage, dendrogram
 st.set_page_config(layout="wide")
 
 # Display Logo and Title 
-st.image("assets/logo.png")
+st.image("asset/logo.png")
 
 st.markdown("""
 **Unsoupervised** allows you to apply unsupervised machine learning models to either an uploaded or selected sample dataset.
