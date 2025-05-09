@@ -1,5 +1,12 @@
+# File Path Libraries
 import os
 from pathlib import Path
+
+# Read in .toml file
+config_dir = Path(__file__).resolve().parent / ".streamlit"
+os.environ["STREAMLIT_CONFIG_DIR"] = str(config_dir)
+
+# Import libraries
 import pandas as pd
 import numpy as np
 import streamlit as st
