@@ -28,7 +28,7 @@ This Streamlit app allows users to use various machine learning models, experime
 * Seaborn
 <img src="assets/ml-learning-app-screenshot.png" width="700"/>
 
-### 4. Unsupervised Machine Learning App ([Github](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/tree/main/MLUnsupervisedApp)) ([Streamlit Community Cloud](https://unsoupervised.streamlit.app/)
+### 4. Unsupervised Machine Learning App ([Github](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/tree/main/MLUnsupervisedApp)) | ([Streamlit Community Cloud](https://unsoupervised.streamlit.app/))
 This Streamlit app allows users to use unsupervised learning models, experiment with hyperparaments, and evaluate models with resulting metrics and visualizions—all using an uploaded dataset or one of the available demos. It greatly improves upon my previous Streamlit app, showcasing not only my new understanding of unsupervised models but also my improvement in Streamlit design.
 **Tools & Skills Showcased:**
 * Python
