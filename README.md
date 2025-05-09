@@ -1,4 +1,10 @@
-My portfolio for *MDSC 20009: Introduction to Data Science* at the University of Notre Dame. Includes course notes and exercises, plus the following projects:
+### Portfolio at a Glance:
+* **My First Streamlit App:** Provides a way to compare films in the James Bond franchise utilizing basic Streamlit functions.
+* **Tidy Data Project: Federal R&D Budget:** Applies principles of tidy data in order to analyze a budget dataset and produce meaningful visualizations from it.
+* **Machine Learning App:** Streamlit app allowing users to upload a dataset and apply supervised machine learning models to it. Available on the community cloud.
+* **Unupervised Machine Learning App:** Streamlit app allowing users to upload a dataset and apply unsupervised machine learning models to it. Greatly improves on design of previous application. Available on the community cloud.
+
+<br>
 
 ### 1. My First Streamlit App: James Bond Franchise ([GitHub](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/tree/45df5288c5c65b926761bc3010556b5a969bd744/basic_streamlit_app))
 This Streamlit app provides a way to explore similarities and differences between films in the James Bond franchise. It incorporates basic elements of Streamlit app development, with room for further improvement as I learn additional capabilities using Streamlit and other packages. <br><br>
@@ -28,7 +34,7 @@ This Streamlit app allows users to use various machine learning models, experime
 * Seaborn
 <img src="assets/ml-learning-app-screenshot.png" width="700"/>
 
-### 4. Unsupervised Machine Learning App ([Github](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/tree/main/MLUnsupervisedApp)) | ([Streamlit Community Cloud](https://unsoupervised.streamlit.app/))
+### 4. Unsupervised Machine Learning App: Unsoupervised ([Github](https://github.com/cozette-brown/BROWN-Data-Science-Portfolio/tree/main/MLUnsupervisedApp)) | ([Streamlit Community Cloud](https://unsoupervised.streamlit.app/))
 This Streamlit app allows users to use unsupervised learning models, experiment with hyperparaments, and evaluate models with resulting metrics and visualizions—all using an uploaded dataset or one of the available demos. It greatly improves upon my previous Streamlit app, showcasing not only my new understanding of unsupervised models but also my improvement in Streamlit design.
 **Tools & Skills Showcased:**
 * Python
